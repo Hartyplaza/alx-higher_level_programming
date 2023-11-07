@@ -1,9 +1,11 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 def new_in_list(my_list, idx, element):
-    new_list = my_list[:]
-    if new_list is None:
+    # Copy original list in other variable#
+    a = my_list[:]
+    if a is None:
         return
     if idx < 0 or idx > len(my_list) - 1:
-        return new_list
-    new_list[idx] = element
-    return new_list
+        return (a)
+    # Replace element#
+    a[idx] = element
+    return (a)
