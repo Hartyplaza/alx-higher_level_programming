@@ -5,8 +5,8 @@
 class Rectangle:
     """ defines a rectangle """
     def __init__(self, width=0, height=0):
-        self.width = width
         self.height = height
+        self.width = width
 
     """ width setter """
     @property
