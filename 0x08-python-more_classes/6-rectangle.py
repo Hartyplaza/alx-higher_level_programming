@@ -1,13 +1,16 @@
 #!/usr/bin/python3
-""" A Rectangl class """
+""" A Rectangle class """
 
 
 class Rectangle:
     """ defines a rectangle """
 
+    number_of_instances  = 0
+
     def __init__(self, width=0, height=0):
         self.height = height
         self.width = width
+        Rectangle.number_of_instances += 1
 
     """ width setter """
 
@@ -75,4 +78,5 @@ class Rectangle:
     """ Deleting an instance """
 
     def __del__(self):
-        return ("Bye rectangle...")
+        Rectangle.number_of_instances -= 1
+        print("Bye rectangle...")

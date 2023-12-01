@@ -1,13 +1,17 @@
 #!/usr/bin/python3
-""" A Rectangl class """
+""" A Rectangle class """
 
 
 class Rectangle:
     """ defines a rectangle """
 
+    number_of_instances = 0
+    print_symbol = '#'
+
     def __init__(self, width=0, height=0):
         self.height = height
         self.width = width
+        Rectangle.number_of_instances += 1
 
     """ width setter """
 
@@ -65,7 +69,8 @@ class Rectangle:
         if self.__width == 0 or self.__height == 0:
             return empty_string
 
-        return ((('#' * self.width) + "\n") * self.height)[:-1]
+        r = (((str(self.print_symbol) * self.width) + "\n") * self.height)[:-1]
+        return r
 
     """ string representation of the rectangle"""
 
@@ -75,4 +80,21 @@ class Rectangle:
     """ Deleting an instance """
 
     def __del__(self):
-        return ("Bye rectangle...")
+        Rectangle.number_of_instances -= 1
+        print("Bye rectangle...")
+
+    """ Returns the biggest rectangle based on the area """
+    def bigger_or_equal(rect_1, rect_2):
+
+        if isinstance(rect_1, Rectangle) is not True:
+            raise TypeError("rect_1 must be an instance of Rectangle")
+        if isinstance(rect_2, Rectangle) is not True:
+            raise TypeError("rect_2 must be an instance of Rectangle")
+
+        if rect_1.area() == rect_2.area():
+            return rect_1
+
+        if rect_2.area() > rect_1.area():
+            return rect_2
+        else:
+            return rect_1
