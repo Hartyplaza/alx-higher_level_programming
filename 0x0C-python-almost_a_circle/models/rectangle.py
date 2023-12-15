@@ -70,3 +70,18 @@ class Rectangle(Base):
     def area(self):
         """ this public method returns the value of the rectangle"""
         return self.__height * self.__width
+
+    """ update class Rectangle """
+    def display(self):
+        """ prints in stdout the Rectangle instance """
+        for i in range(self.__y):
+            print("")
+        for j in range(self.__height):
+            print(self.__x * " " + '#' * self.__width)
+
+    """ Update the class Rectangle """
+    def __str__(self):
+        """ returns [Rectangle] (<id>) <x>/<y> - <width>/<height> """
+        return ("[{}] ({}) {:d}/{:d} - {:d}/{:d}".format(
+            self.__class__.__name__, self.id, self.__x,
+            self.__y, self.__width, self.__height))
